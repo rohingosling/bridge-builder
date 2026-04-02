@@ -21,8 +21,7 @@ This software was written to facilitate the design, budgeting, and construction 
 |:---:|:---:|:---:|
 | ![Beam](IMAGE/CAPTURE/bridge_003.png) | ![Rotate](IMAGE/CAPTURE/bridge_006.png) | ![Complex](IMAGE/CAPTURE/bridge_005.png) |
 
-![2D](IMAGE/CAPTURE/BridgeBuild2.png)
-
+[🌉 Photo of the physical bridge entered into the competition](IMAGE/CAPTURE/BridgeBuild2.png)
 
 
 ## Features
@@ -35,6 +34,62 @@ This software was written to facilitate the design, budgeting, and construction 
 - Ten save/load slots for bridge designs.
 
 ![3D View](IMAGE/CAPTURE/bridge_004.png)
+
+## Bridge Geometry
+
+The bridge is a symmetric parabolic truss centered at the origin. All geometry is derived from three user parameters -- length $l$, height $h$, and width $w$ -- plus a segment count $s$ that controls the resolution of the arch.
+
+### Parabolic Arch
+
+The arch profile follows a downward-opening parabola that passes through the endpoints of the road bed and reaches its apex at the bridge midpoint. With the bridge centered on the $x$-axis so that the road bed spans from $-\tfrac{l}{2}$ to $+\tfrac{l}{2}$, the arch height at any position $x$ is:
+
+$$y(x) = ax^2 + h, \qquad a = -\frac{h}{\left(\tfrac{l}{2}\right)^2}$$
+
+At $x = 0$ (midpoint) the arch reaches its full height $h$. At $x = \pm\tfrac{l}{2}$ (the ends) the arch meets the road bed at $y = 0$.
+
+### Structural Elements
+
+The arch is sampled at $s$ equally-spaced segments of width $\Delta x = \tfrac{l}{s}$. At each sample point the program evaluates the parabola to obtain the arch height, then generates five categories of beam:
+
+| Element | Description |
+|:--------|:------------|
+| **Vertical beams** | Connect the road bed ($y = 0$) to the arch point $y(x)$ at each sample. |
+| **Arch beams** | Connect consecutive arch points, forming the curved top chord. |
+| **Diagonal beams** | Brace between the road bed and the arch in one of three configurations: *Hanging* (road to farther arch point), *Support* (road to nearer arch point), or *Zig-zag* (alternating). |
+| **Cross beams** | Span the bridge width $w$ at road level and at the arch, tying the two sides together. |
+| **Road bed** | Two longitudinal beams running the full length of the bridge, one on each side. |
+
+All elements are generated for both sides of the bridge (offset by $\pm\tfrac{w}{2}$ on the $z$-axis), producing a complete 3D truss from the 2D arch profile.
+
+### 3D Rendering Pipeline
+
+The 3D view transforms each beam vertex through four stages:
+
+1. **Yaw rotation** (about the $y$-axis by angle $\theta$):
+
+$$x' = x\cos\theta - z\sin\theta$$
+
+$$z' = x\sin\theta + z\cos\theta$$
+
+2. **Pitch rotation** (about the $x$-axis by angle $\phi$):
+
+$$y' = y\cos\phi - z\sin\phi$$
+
+$$z' = y\sin\phi + z\cos\phi$$
+
+3. **Perspective projection** with focal length $f$:
+
+$$X = \frac{f \cdot x}{f + z}, \qquad Y = \frac{f \cdot y}{f + z}$$
+
+4. **Aspect correction** for VGA $640 \times 350$ non-square pixels ($A_y = 0.72$), uniform scaling, and displacement to the window center.
+
+### Material Length
+
+Total construction material is the sum of all beam lengths computed via the 3D Euclidean distance:
+
+$$L_{\text{total}} = \sum_{i=1}^{N} \sqrt{\Delta x_i^2 + \Delta y_i^2 + \Delta z_i^2}$$
+
+When the *double arch beams* option is enabled, arch beam lengths are doubled and extra material is added for splice joints at regular intervals.
 
 ## Requirements
 
