@@ -1,0 +1,56 @@
+-----------------------------------------------------------------------------
+
+                               BRIDGE  BUILDER
+
+                                (version 1.4)
+
+
+                                Rohin Gosling
+                                Casey Chadwick
+
+-----------------------------------------------------------------------------
+                                                            
+                           Keyboard quick reference
+
+ General keys:
+
+
+   Esc               - Exit program.
+
+   Tab               - Toggle active window.
+
+   V                 - Toggle 2D/3D view.
+
+   *                 - Reset program.
+
+   Alt + 0..9        - Save to file BRIDGE_X.BRG, where X is the selected
+                       number form 0..9.
+
+   0..9              - Load file BRIDGE_X.BRG, where X is the selected number
+                       from 0..9.
+
+ Dialog window:
+
+   Up/Down           - Scroll up and down through the design and
+                       construction parameters.
+
+   Enter             - Edit a parameter.
+
+   Left/right        - Spin through design parameter values 1mm at a time.
+                       Spin through segment distribution values.
+
+   Ctrl + Left/Right - Spin through design parameter values 10mm at a time.
+
+ 2D View:
+
+   +/-               - Scroll through construction beams.
+
+ 3D View:
+
+   Up/Down           - Rotate model about the x axis. (Pitch).
+
+   Left/Right        - Rotate model about the y axis. (Yaw).
+
+-----------------------------------------------------------------------------
+
+   

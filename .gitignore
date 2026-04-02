@@ -1,0 +1,23 @@
+# Build artifacts
+*.OBJ
+BUILD.LOG
+
+# Build and clean scripts
+BUILD.BAT
+CLEAN.BAT
+
+# Pre-refactoring monolithic source
+BRIDGE_ORIGINAL.CPP
+
+# Editor configuration
+.vscode/
+
+# Backups
+BACKUP/
+
+# DOSBox video captures (large binary)
+IMAGE/CAPTURE/*.avi
+
+# Claude Code project config
+.claude/
+CLAUDE.md
