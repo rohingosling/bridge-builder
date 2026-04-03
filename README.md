@@ -10,7 +10,7 @@
 **Year:** 2000
 
 
-An interactive bridge design utility for modelling parabolic truss bridges. Renders real-time 2D orthographic and 3D perspective views of parameterized, parabolic, truss-bridge structures.
+An interactive bridge design utility for modelling parabolic tied-arch bridges. Renders real-time 2D orthographic and 3D perspective views of parameterized, parabolic, truss-bridge structures.
 
 This software was written to facilitate the design, budgeting, and construction of a model bridge for an academic bridge building competition. The physical bridge built using the software to guide design, placed **2nd** in the competition for load capacity, and **1st** for design architecture.
 
