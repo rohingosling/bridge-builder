@@ -26,7 +26,7 @@ This software was written to facilitate the design, budgeting, and construction 
 
 ## Features
 
-- Parametric design of parabolic suspension bridges with adjustable length, height, width, and segment count.
+- Parametric design of parabolic tied-arch bridges with adjustable length, height, width, and segment count.
 - Three structural configurations: Hanging, Support, and Zig-zag.
 - Real-time 2D orthographic and 3D perspective rendering with smooth rotation.
 - Double-buffered 3D display with vertical retrace synchronization for flicker-free animation.

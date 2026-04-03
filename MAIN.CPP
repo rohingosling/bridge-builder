@@ -8,7 +8,7 @@
 //
 //   Bridge builder is an experimental bridge design utility program used to
 //   manipulate the parameters of and model the structure of parabolic
-//   suspension bridges.
+//   tied-arch bridges.
 //
 // File structure (version 1.4)
 //
