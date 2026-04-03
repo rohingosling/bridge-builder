@@ -33,8 +33,6 @@ This software was written to facilitate the design, budgeting, and construction 
 - Individual beam inspection showing length, gradient, and vertex coordinates.
 - Ten save/load slots for bridge designs.
 
-![3D View](IMAGE/CAPTURE/bridge_004.png)
-
 ## Bridge Geometry
 
 The bridge is a symmetric parabolic truss centered at the origin. All geometry is derived from three user parameters -- length $l$, height $h$, and width $w$ -- plus a segment count $s$ that controls the resolution of the arch.
@@ -60,28 +58,6 @@ The arch is sampled at $s$ equally-spaced segments of width $\Delta x = \tfrac{l
 | **Road bed** | Two longitudinal beams running the full length of the bridge, one on each side. |
 
 All elements are generated for both sides of the bridge (offset by $\pm\tfrac{w}{2}$ on the $z$-axis), producing a complete 3D truss from the 2D arch profile.
-
-### 3D Rendering Pipeline
-
-The 3D view transforms each beam vertex through four stages:
-
-1. **Yaw rotation** (about the $y$-axis by angle $\theta$):
-
-$$x' = x\cos\theta - z\sin\theta$$
-
-$$z' = x\sin\theta + z\cos\theta$$
-
-2. **Pitch rotation** (about the $x$-axis by angle $\phi$):
-
-$$y' = y\cos\phi - z\sin\phi$$
-
-$$z' = y\sin\phi + z\cos\phi$$
-
-3. **Perspective projection** with focal length $f$:
-
-$$X = \frac{f \cdot x}{f + z}, \qquad Y = \frac{f \cdot y}{f + z}$$
-
-4. **Aspect correction** for VGA $640 \times 350$ non-square pixels ($A_y = 0.72$), uniform scaling, and displacement to the window center.
 
 ### Material Length
 
