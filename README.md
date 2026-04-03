@@ -5,7 +5,7 @@
 ![DOS](https://img.shields.io/badge/DOS-000000?style=flat&logo=windows95&logoColor=white)
 ![BGI](https://img.shields.io/badge/BGI_Graphics-004080?style=flat)
 
-**Authors:** Casey Chadwick, Rohin A. Gosling<br>
+**Authors:** Casey Chadwick, Rohin Gosling<br>
 **Version:** 1.4a<br>
 **Year:** 2000
 
